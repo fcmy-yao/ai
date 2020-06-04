@@ -1247,21 +1247,3 @@ def getDistanceByPoint(data, model):
         Xb = model.cluster_centers_[model.labels_[i]]
         distance.set_value(i, np.linalg.norm(Xa - Xb))
     return distance
- plt=None
-def kmeans(self,n):
-    # 设置异常值比例
-    outliers_fraction = 0.01
-    # 得到每个点到取聚类中心的距离，我们设置了N个聚类中心
-    distance = getDistanceByPoint(data, kmeans[n])
-    # 根据异常值比例outliers_fraction计算异常值的数量
-    number_of_outliers = int(outliers_fraction * len(distance))
-    # 设定异常值的阈值
-    threshold = distance.nlargest(number_of_outliers).min()
-    # 根据阈值来判断是否为异常值
-    df['anomaly1'] = (distance >= threshold).astype(int)
-    # 数据可视化
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.scatter(df['principal_feature1'], df['principal_feature2'], c=df["anomaly1"].apply(lambda x: colors[x]))
-    plt.xlabel('num')
-    plt.ylabel('num')
-    plt.show()
