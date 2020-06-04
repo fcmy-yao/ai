@@ -1,0 +1,38 @@
+{% extends "base2.html" %}
+{% load staticfiles %}
+{% block title %}数据源{% endblock %}
+{% block content %}
+<div class="container"  >
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <table class="table table-hover table-bordered table-striped">
+                   <tr>
+                       <td>门诊病人预测</td>
+                       <td><a href="{% url 'test' %}" class="btn btn-success">编辑</a></td>
+                   </tr>
+                   <tr>
+                       <td>胎儿体重预测</td>
+                       <td><a href="#" class="btn btn-success">编辑</a></td>
+                   </tr>
+                   <tr>
+                       <td>服务器压力预测</td>
+                       <td><a href="#" class="btn btn-success">编辑</a></td>
+                   </tr>
+                  <tr>
+                       <td>血压预测</td>
+                       <td><a href="#" class="btn btn-success">编辑</a></td>
+                   </tr>
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

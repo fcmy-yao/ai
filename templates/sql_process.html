@@ -1,0 +1,25 @@
+{% extends "base2.html" %}
+{% load staticfiles %}
+{% block title %}数据源{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <span>sql查询器</span>
+            <form action="/sql-exe/" method="post" >
+                <table class="table table-hover table-bordered table-striped">
+                    <tr><td>
+                        <textarea rows="10" cols="50" id="txt" name="txt">SELECT * FROM table_name
+                        </textarea>
+                    </td></tr>
+            </table>
+                <input type="submit" class="btn btn-primary" value="执行sql语句">
+            <a href="{% url 'sql_process' %}" class="btn btn-danger">执行选中的sql</a>
+            <a href="{% url 'sql_process' %}" class="btn btn-success">保存</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

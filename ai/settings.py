@@ -85,7 +85,7 @@ DATABASES = {
 
         'USER': 'root',   #你的数据库用户名
 
-        'PASSWORD': 'root', #你的数据库密码
+        'PASSWORD': 'root123', #你的数据库密码
 
         'HOST': '', #你的数据库主机，留空默认为localhost
 

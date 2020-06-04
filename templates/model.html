@@ -1,0 +1,27 @@
+{% extends "base2.html" %}
+{% load staticfiles %}
+{% block title %}数据源{% endblock %}
+{% block content %}
+<div class="container" style="position: relative" >
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <br>
+            <br>
+            <br>
+            <span>已有模型</span>
+            <table class="table table-hover table-bordered table-striped">
+                    <tr><td>BP</td></tr>
+                    <tr><td>RNN</td></tr>
+                    <tr><td>LSTM</td></tr>
+                    <tr><td>SVM</td></tr>
+                    <tr><td>Simple ANN</td></tr>
+                    <tr><td>PSO-LSTM</td></tr>
+                    <tr><td>XBOOST</td></tr>
+                    <tr><td>GA-BP</td></tr>
+            </table>
+            <a href="#" class="btn btn-primary">新建模型</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

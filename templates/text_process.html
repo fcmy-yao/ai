@@ -1,0 +1,28 @@
+{% extends "base2.html" %}
+{% load staticfiles %}
+{% block title %}数据源{% endblock %}
+{% block content %}
+<div class="container" style="position: relative" >
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <br>
+            <br>
+            <br>
+            <span><b>已有电子病例</b></span>
+            <br>
+            <br>
+            <table class="table table-hover table-bordered table-striped">
+                    {% for table in tables %}
+                        <tr>
+                            <td>{{ table}}</td>
+                        <td><a href="{% url 'text_process_two' %}" class="btn btn-primary">预处理</a></td>
+                        </tr>
+                    {% endfor %}
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

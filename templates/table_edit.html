@@ -1,0 +1,35 @@
+{% extends "base2.html" %}
+{% load staticfiles %}
+{% block title %}数据源{% endblock %}
+{% block content %}
+<div class="container" >
+    <div class="row">
+        <div class="col">
+            <br>
+            <br>
+            <br>
+            <form action="" method="post">
+                <div style="text-align: center">
+                    <input type="text" value="{{ table_name }}" name="t_name" style="display: none">
+                </div>
+                <table class="table table-hover table-bordered table-striped">
+                {% for i in table %}
+                    {% if forloop.first %}
+                        <input type="text" value="{{ i.id }}" name="col_id" style="display: none">
+                    {% endif %}
+                    {% for key,value in i.items %}
+                           <tr>
+                           <td>{{ key }}</td>
+                           <td><input type="text" value="{{value}}" ></td>
+                           </tr>
+                        {% endfor %}
+                {% endfor %}
+            </table>
+                <input type="text" name="col_name">
+                <input type="text" name="col_value">
+                <input type="submit"  class="btn btn-primary" value="更新">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
