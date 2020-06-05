@@ -15,6 +15,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sqlalchemy.types import NVARCHAR, Float, Integer
 from django.core.paginator import Paginator
+import os
 
 
 class LoginView(View):
@@ -216,7 +217,7 @@ class CreateDataView(View):
         if not myFile:
             return HttpResponse("没有文件传入")
         import os
-        destination = open(os.path.join("C:\\Users\\yql\\PycharmProjects\\ai\\static\\upload", myFile.name), 'wb+')  # 打开特定的文件进行二进制的写操作
+        destination = open(os.path.join("./static/upload", myFile.name), 'wb+')  # 打开特定的文件进行二进制的写操作
         for chunk in myFile.chunks():  # 分块写入文件
             destination.write(chunk)
         destination.close()
@@ -224,7 +225,7 @@ class CreateDataView(View):
             engine = create_engine('mysql+pymysql://root:root123@localhost:3306/ai2')
             # 建立连接
             con = engine.connect()
-            df = pd.read_csv('C:/Users/yql/PycharmProjects/ai/static/upload/'+myFile.name)
+            df = pd.read_csv('./static/upload/'+myFile.name)
             def map_types(df):
                 dtypedict = {}
                 for i, j in zip(df.columns, df.dtypes):
@@ -259,7 +260,7 @@ class ShowTableView(View):
         # # 关闭数据库连接
         # db.close()
         import os
-        filePath = 'C:/Users/yql/PycharmProjects/ai/static/upload/'
+        filePath = './static/upload/'
         datas = os.listdir(filePath)
         data = [i.split('.')[0] for i in datas]
         return render(request,'show_table.html',{'tables':data})
@@ -273,7 +274,7 @@ class SqlProcessView(View):
 class TextProcessView(View):
     def get(self,request):
         import os
-        filePath = 'C:/Users/yql/PycharmProjects/ai/static/upload/'
+        filePath = './static/upload/'
         datas = os.listdir(filePath)
         l = []
         for i in datas:
@@ -328,7 +329,7 @@ def kmeans(request):
     plt.xlabel('num')
     plt.ylabel('num')
     plt.title('outlier')
-    plt.savefig('C:\\Users\\yql\\PycharmProjects\\ai\\static\\images\\yichang.png')
+    plt.savefig('./static/images/yichang.png')
     plt.show()
     return JsonResponse(response,safe=False)
 def table_edit(request,edit_id):
