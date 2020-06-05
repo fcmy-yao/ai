@@ -222,7 +222,7 @@ class CreateDataView(View):
             destination.write(chunk)
         destination.close()
         if myFile.name.endswith('.csv'):
-            engine = create_engine('mysql+pymysql://root:root123@localhost:3306/ai2')
+            engine = create_engine('mysql+pymysql://root:root123@localhost:3306/ai')
             # 建立连接
             con = engine.connect()
             df = pd.read_csv('./static/upload/'+myFile.name)
